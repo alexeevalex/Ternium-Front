@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternium - Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="bg-gray-800 p-2 mt-0 fixed w-full z-10 top-0">
+        <div class="container mx-auto flex flex-wrap items-center">
+            <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+                <a href="#">
+                    <img src="./assets/terniumlogo.png" alt="Logo de Ternium" class="h-8 w-auto sm:h-10">
+                </a>
+            </div>
+            <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
+                <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+                    <li class="mr-3">
+                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Perfil</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="terniumuniversity.html">Ternium University</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="historico.html">Histórico y Evaluaciones</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="remuneracion.html">Remuneración</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto my-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+            <!-- Foto del usuario -->
+            <div class="text-center">
+                <div class="rounded-full w-96 h-96 overflow-hidden mx-auto">
+                    <img class="w-full h-full object-cover" src="./assets/fotodeusuario.jpeg" alt="Foto del Usuario">
+                </div>
+                <p class="mt-4 text-2xl font-bold" id="nombre">Pancho Pantera</p>
+            </div>
+            
+            <!-- Información del perfil -->
+            <div class="space-y-4">
+                <div>
+                    <p class="text-gray-500">Encuadre actual y fecha de inicio del encuadre actual</p>
+                    <p class="text-lg" id="encuadre">Información del backend</p>
+                </div>
+                <div>
+                    <p class="text-gray-500">Fecha de graduación</p>
+                    <p class="text-lg" id="graduacion">Información del backend</p>
+                </div>
+                <div>
+                    <p class="text-gray-500">Área de rotación actual</p>
+                    <p class="text-lg" id="rotacion">Información del backend</p>
+                </div>
+                <div>
+                    <p class="text-gray-500">Jefe actual</p>
+                    <p class="text-lg" id="jefe">Información del backend</p>
+                </div>
+                
+            <!-- Intereses de áreas -->
+            <div>
+                <p class="text-gray-500">Intereses de áreas</p>
+                <div id="intereses" class="space-y-2">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="mantenimiento" name="interes" value="Mantenimiento" class="mr-2">
+                        <label for="mantenimiento" class="text-lg">Mantenimiento</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="operaciones" name="interes" value="Operaciones" class="mr-2">
+                        <label for="operaciones" class="text-lg">Operaciones</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="supplyChain" name="interes" value="Supply Chain" class="mr-2">
+                        <label for="supplyChain" class="text-lg">Supply Chain</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="ingenieriaProyectos" name="interes" value="Ingeniería y Proyectos" class="mr-2">
+                        <label for="ingenieriaProyectos" class="text-lg">Ingeniería y Proyectos</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="medioAmbiente" name="interes" value="Medio Ambiente" class="mr-2">
+                        <label for="medioAmbiente" class="text-lg">Medio Ambiente</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="seguridad" name="interes" value="Seguridad" class="mr-2">
+                        <label for="seguridad" class="text-lg">Seguridad</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="comercial" name="interes" value="Comercial" class="mr-2">
+                        <label for="comercial" class="text-lg">Comercial</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="administracionFinanzas" name="interes" value="Administración y Finanzas" class="mr-2">
+                        <label for="administracionFinanzas" class="text-lg">Administración y Finanzas</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="auditoriaLegal" name="interes" value="Auditoría y Legal" class="mr-2">
+                        <label for="auditoriaLegal" class="text-lg">Auditoría y Legal</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="comunicaciones" name="interes" value="Comunicaciones" class="mr-2">
+                        <label for="comunicaciones" class="text-lg">Comunicaciones</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="recursosHumanos" name="interes" value="Recursos Humanos" class="mr-2">
+                        <label for="recursosHumanos" class="text-lg">Recursos Humanos</label>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
