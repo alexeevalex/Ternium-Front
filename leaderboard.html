@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ternium - Inicio</title>
+    <title>Ternium - Leaderboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -31,6 +31,12 @@
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="remuneracion.html">Remuneración</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="videojuego.html">Videojuego</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="admin.html">Admin</a>
                     </li>
                 </ul>
             </div>
@@ -131,13 +137,29 @@
 </html>
 
 <script>
-    fetch('http://localhost:3000/leaderboard')
-    .then(response => {
-        if (!response.ok) {
-        throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => console.log(data))
-    .catch(error => console.error('There has been a problem with your fetch operation:', error));
-</script>
+    window.onload = function() {
+      fetch('http://localhost:3000/leaderboard')
+        .then(response => response.json())
+        .then(data => {
+          const leaderboardContainer = document.querySelector('.space-y-4');
+          leaderboardContainer.innerHTML = ''; // Limpiamos cualquier contenido previo
+    
+          data.forEach((user, index) => {
+            const userElement = document.createElement('div');
+            userElement.className = 'flex items-center justify-between bg-white shadow rounded-lg px-6 py-4';
+            userElement.innerHTML = `
+              <div class="flex items-center space-x-4">
+                <img class="w-12 h-12 object-cover rounded-full" src="${user.avatar ? user.avatar : 'https://randomuser.me/api/portraits/men/' + (index + 1) + '.jpg'}" alt="${user.username}">
+                <div>
+                  <h3 class="text-xl font-semibold">${user.username}</h3>
+                  <p class="text-gray-500">Cursos completados: ${user.cursos_completados}</p>
+                </div>
+              </div>
+              <span class="text-4xl font-semibold">${index + 1}</span>
+            `;
+            leaderboardContainer.appendChild(userElement);
+          });
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>    

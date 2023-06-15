@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ternium - Inicio</title>
+    <title>Ternium - Remuneración</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
             <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
                 <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
                     <li class="mr-3">
-                        <a class="inline-block py-2 px-4 text-white no-underline" href="index.html">Perfil</a>
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="index.html">Perfil</a>
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="leaderboard.html">Leaderboard</a>
@@ -30,7 +30,13 @@
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="historico.html">Histórico y Evaluaciones</a>
                     </li>
                     <li class="mr-3">
-                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">Remuneración</a>
+                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Remuneración</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="videojuego.html">Videojuego</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="admin.html">Admin</a>
                     </li>
                 </ul>
             </div>
@@ -44,7 +50,7 @@
         <!-- Noticias sobre actualización en temas remunerativos -->
         <div class="mb-10 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-md shadow-sm">
             <h3 class="text-2xl font-semibold">Noticias:</h3>
-            <p class="text-xl">Aquí van las noticias sobre actualización en temas remunerativos del Backend</p>
+            <p class="text-xl">Actualización salarial 2023: Hemos concluido el proceso de revisión salarial para el año 2023. Por favor, consulta tu nueva remuneración en la sección correspondiente.</p>
         </div>
 
         <!-- Encuadre actual y sueldo correspondiente -->
@@ -63,11 +69,31 @@
         <div class="mb-10">
             <h3 class="text-2xl font-semibold">Fechas importantes:</h3>
             <ul class="list-disc ml-5 space-y-3">
-                <li class="text-xl text-gray-500">Fecha importante 1 - Descripción</li>
-                <li class="text-xl text-gray-500">Fecha importante 2 - Descripción</li>
+                <li class="text-xl text-gray-500">Julio 10, 2023 - Fecha de corte para la actualización de los datos de empleados.</li>
+                <li class="text-xl text-gray-500">Agosto 15, 2023 - Cierre del periodo de evaluaciones de rendimiento.</li>
                 <!-- Aquí van las demás fechas importantes -->
             </ul>
         </div>
     </div> 
 </body>
 </html>
+
+<script>
+    window.onload = function() {
+        fetch('http://localhost:3000/remuneracion')
+            .then(response => response.json())
+            .then(data => {
+                const encuadreSueldoDiv = document.querySelector('.mb-10:nth-child(3) p');
+                const ptuFechaDiv = document.querySelector('.mb-10:nth-child(4) p');
+                
+                // Cambiar formato de la fecha
+                const fechaPTU = new Date(data[0].fecha_ptu);
+                const fechaFormateada = fechaPTU.getDate() + '/' + (fechaPTU.getMonth() + 1) + '/' + fechaPTU.getFullYear();
+
+                // Insertar datos en el HTML
+                encuadreSueldoDiv.textContent = `Encuadre: ${data[0].encuadre_nombre}, Sueldo: $${data[0].sueldo}`;
+                ptuFechaDiv.textContent = `Próximo adelanto de PTU: ${fechaFormateada}`;
+            })
+            .catch(err => console.log(err));
+    }
+</script>

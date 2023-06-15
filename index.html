@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ternium - Inicio</title>
+    <title>Ternium - Perfil</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -31,6 +31,12 @@
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="remuneracion.html">Remuneración</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="videojuego.html">Videojuego</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="admin.html">Admin</a>
                     </li>
                 </ul>
             </div>
@@ -122,3 +128,21 @@
     
 </body>
 </html>
+
+<script>
+    window.onload = function() {
+      fetch('http://localhost:3000/perfil')
+        .then(response => response.json())
+        .then(data => {
+          const perfilData = data[0]; // Tomamos el primer elemento del array devuelto
+          
+          // Aquí, toma cada elemento por su ID y cambia su contenido por los datos recibidos
+          document.getElementById('encuadre').textContent = `${perfilData.encuadre_nombre}, desde ${new Date(perfilData.inicio_encuadre_actual).toLocaleDateString()}`;
+          document.getElementById('graduacion').textContent = new Date(perfilData.fecha_graduacion).toLocaleDateString();
+          document.getElementById('rotacion').textContent = perfilData.rotacion_nombre;
+          document.getElementById('jefe').textContent = perfilData.jefe_actual;
+          // document.getElementById('nombre').textContent = perfilData.nombre;
+        })
+        .catch(error => console.error('Hubo un error al cargar los datos del perfil:', error));
+    };
+    </script>

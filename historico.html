@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ternium - Inicio</title>
+    <title>Ternium - Historico</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
             <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
                 <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
                     <li class="mr-3">
-                        <a class="inline-block py-2 px-4 text-white no-underline" href="index.html">Perfil</a>
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="index.html">Perfil</a>
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="leaderboard.html">Leaderboard</a>
@@ -27,10 +27,16 @@
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="terniumuniversity.html">Ternium University</a>
                     </li>
                     <li class="mr-3">
-                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">Histórico y Evaluaciones</a>
+                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Histórico y Evaluaciones</a>
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="remuneracion.html">Remuneración</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="videojuego.html">Videojuego</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="admin.html">Admin</a>
                     </li>
                 </ul>
             </div>
@@ -44,48 +50,43 @@
         <!-- Fecha de ingreso al programa Global Trainee -->
         <div class="mb-10">
             <h3 class="text-2xl font-semibold">Fecha de ingreso al programa Global Trainee:</h3>
-            <p class="text-gray-500 text-xl">Fecha del Backend</p>
+            <p class="text-gray-500 text-xl">1/6/2023</p>
         </div>
 
         <!-- Listado de histórico de rotaciones -->
         <div class="mb-10">
             <h3 class="text-2xl font-semibold">Histórico de rotaciones:</h3>
-            <ul class="list-disc ml-5 space-y-3">
-                <!-- Rotación 1 -->
-                <li class="text-xl text-gray-500">
-                    <p>Rotación 1 (Fecha de inicio - Fecha de fin) - Jefe directo: Nombre del Jefe</p>
-                    <div class="ml-5">
-                        <h4 class="font-semibold">Evaluación de performance:</h4>
-                        <p>Información del Backend</p>
-                        <h4 class="font-semibold">Comentarios de feedback del jefe:</h4>
-                        <p>Información del Backend</p>
-                    </div>
-                </li>
-                <!-- Rotación 2 -->
-                <li class="text-xl text-gray-500">
-                    <p>Rotación 2 (Fecha de inicio - Fecha de fin) - Jefe directo: Nombre del Jefe</p>
-                    <div class="ml-5">
-                        <h4 class="font-semibold">Evaluación de performance:</h4>
-                        <p>Información del Backend</p>
-                        <h4 class="font-semibold">Comentarios de feedback del jefe:</h4>
-                        <p>Información del Backend</p>
-                    </div>
-                </li>
-                <!-- Rotación 3 -->
-                <li class="text-xl text-gray-500">
-                    <p>Rotación 3 (Fecha de inicio - Fecha de fin) - Jefe directo: Nombre del Jefe</p>
-                    <div class="ml-5">
-                        <h4 class="font-semibold">Evaluación de performance:</h4>
-                        <p>Información del Backend</p>
-                        <h4 class="font-semibold">Comentarios de feedback del jefe:</h4>
-                        <p>Información del Backend</p>
-                    </div>
-                </li>
-                <!-- Aquí pueden ir más rotaciones -->
+            <ul class="list-disc ml-5 space-y-3" id="rotaciones-lista">
+                <!-- Los detalles de las rotaciones se llenarán desde el backend -->
             </ul>
         </div>
-    </div>
-
-        
+    </div> 
 </body>
 </html>
+
+<script>
+    fetch('http://localhost:3000/historico')
+        .then(response => response.json())
+        .then(data => {
+            let rotacionesLista = document.getElementById('rotaciones-lista');
+            data.forEach(rotacion => {
+                let fechaInicio = new Date(rotacion.fecha_inicio).toLocaleDateString();
+                let fechaFin = rotacion.fecha_fin ? new Date(rotacion.fecha_fin).toLocaleDateString() : 'Actual';
+                let evaluacion = rotacion.evaluacion || 'No disponible';
+                let comentarios = rotacion.comentarios || 'No disponible';
+
+                rotacionesLista.innerHTML += `
+                    <li class="text-xl text-gray-500">
+                        <p>${rotacion.rotacion_nombre} (${fechaInicio} - ${fechaFin}) - Jefe directo: ${rotacion.jefe_directo}</p>
+                        <div class="ml-5">
+                            <h4 class="font-semibold">Evaluación de performance:</h4>
+                            <p>${evaluacion}</p>
+                            <h4 class="font-semibold">Comentarios de feedback del jefe:</h4>
+                            <p>${comentarios}</p>
+                        </div>
+                    </li>
+                `;
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>

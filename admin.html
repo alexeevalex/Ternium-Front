@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternium - University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="bg-gray-800 p-2 mt-0 fixed w-full z-10 top-0">
+        <div class="container mx-auto flex flex-wrap items-center">
+            <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+                <a href="#">
+                    <img src="./assets/terniumlogo.png" alt="Logo de Ternium" class="h-8 w-auto sm:h-10">
+                </a>
+            </div>
+            <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
+                <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="index.html">Perfil</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="terniumuniversity.html">Ternium University</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="historico.html">Histórico y Evaluaciones</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="remuneracion.html">Remuneración</a>
+                    </li>
+                    <li class="mr-3">
+                      <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="videojuego.html">Videojuego</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección del Administrador -->
+    <div class="container mx-auto my-10 px-6 py-4 bg-white border rounded shadow-md">
+      <h2 class="text-3xl font-semibold mb-5">Administrador</h2>
+      <form id="addUserForm" class="mb-5 grid grid-cols-2 gap-4">
+          <div>
+            <label for="pri_id" class="block">ID del Usuario</label>
+            <input type="text" id="pri_id" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="empresa_id" class="block">ID de Empresa</label>
+              <input type="text" id="empresa_id" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="nombre" class="block">Nombre</label>
+              <input type="text" id="nombre" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="apellido_completo" class="block">Apellido</label>
+              <input type="text" id="apellido_completo" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="pri_correo" class="block">Correo</label>
+              <input type="text" id="pri_correo" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="encuadre_nombre" class="block">Encuadre Nombre</label>
+              <input type="text" id="encuadre_nombre" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="inicio_encuadre_actual" class="block">Inicio Encuadre Actual</label>
+              <input type="text" id="inicio_encuadre_actual" class="w-full border border-gray-300 p-2 rounded"/>
+          </div>
+          <div>
+              <label for="fecha_graduacion" class="block">Fecha Graduacion</label>
+              <input type="text" id="fecha_graduacion" class="w-full border border-gray-300 p-2 rounded"/>
+          </div>
+          <div>
+              <label for="perfil_nombre" class="block">Perfil Nombre</label>
+              <input type="text" id="perfil_nombre" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="business_unit_nombre" class="block">Business Unit Nombre</label>
+              <input type="text" id="business_unit_nombre" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="rotacion_nombre" class="block">Rotacion Nombre</label>
+              <input type="text" id="rotacion_nombre" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="jefe_actual" class="block">Jefe Actual</label>
+              <input type="text" id="jefe_actual" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+              <label for="fecha_ingreso_programa" class="block">Fecha Ingreso Programa</label>
+              <input type="text" id="fecha_ingreso_programa" class="w-full border border-gray-300 p-2 rounded"/>
+          </div>
+          <div>
+              <label for="cursos_completados" class="block">Cursos Completados</label>
+              <input type="text" id="cursos_completados" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <button type="submit" class="col-span-2 bg-blue-500 text-white font-bold p-2 rounded">Agregar Usuario</button>
+      </form>
+    </div>
+    
+    <table id="usersTable" class="table-auto w-full"></table>
+</body>
+</html>
+
+<script>
+  const usersTable = document.getElementById('usersTable');
+  const addUserForm = document.getElementById('addUserForm');
+  
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
+
+  function createTable(data) {
+    usersTable.innerHTML = `
+      <div style="overflow-x:auto;">
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                  <th class="px-4 py-2">ID</th>
+                  <th class="px-4 py-2">ID Empresa</th>
+                  <th class="px-4 py-2">Nombre</th>
+                  <th class="px-4 py-2">Apellido</th>
+                  <th class="px-4 py-2">Correo</th>
+                  <th class="px-4 py-2">Encuadre Nombre</th>
+                  <th class="px-4 py-2">Inicio Encuadre Actual</th>
+                  <th class="px-4 py-2">Fecha Graduacion</th>
+                  <th class="px-4 py-2">Perfil Nombre</th>
+                  <th class="px-4 py-2">Business Unit Nombre</th>
+                  <th class="px-4 py-2">Rotacion Nombre</th>
+                  <th class="px-4 py-2">Jefe Actual</th>
+                  <th class="px-4 py-2">Fecha Ingreso Programa</th>
+                  <th class="px-4 py-2">Cursos Completados</th>
+                  <th class="px-4 py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${data.map(user => `
+                    <tr>
+                      <td class="border px-4 py-2">${user.pri_id}</td>
+                      <td class="border px-4 py-2">${user.empresa_id}</td>
+                      <td class="border px-4 py-2">${user.nombre}</td>
+                      <td class="border px-4 py-2">${user.apellido_completo}</td>
+                      <td class="border px-4 py-2">${user.pri_correo}</td>
+                      <td class="border px-4 py-2">${user.encuadre_nombre}</td>
+                      <td class="border px-4 py-2">${formatDate(user.inicio_encuadre_actual)}</td>
+                      <td class="border px-4 py-2">${formatDate(user.fecha_graduacion)}</td>
+                      <td class="border px-4 py-2">${user.perfil_nombre}</td>
+                      <td class="border px-4 py-2">${user.business_unit_nombre}</td>
+                      <td class="border px-4 py-2">${user.rotacion_nombre}</td>
+                      <td class="border px-4 py-2">${user.jefe_actual}</td>
+                      <td class="border px-4 py-2">${formatDate(user.fecha_ingreso_programa)}</td>
+                      <td class="border px-4 py-2">${user.cursos_completados}</td>
+                      <td class="border px-4 py-2">
+                        <button onclick="editUser(${user.pri_id})">Editar</button>
+                        <button onclick="deleteUser(${user.pri_id})">Eliminar</button>
+                      </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function addUser(e) {
+    e.preventDefault();
+
+    const newUser = {
+      pri_id: addUserForm.elements['pri_id'].value,
+      empresa_id: addUserForm.elements['empresa_id'].value,
+      nombre: addUserForm.elements['nombre'].value,
+      apellido_completo: addUserForm.elements['apellido_completo'].value,
+      pri_correo: addUserForm.elements['pri_correo'].value,
+      encuadre_nombre: addUserForm.elements['encuadre_nombre'].value,
+      inicio_encuadre_actual: addUserForm.elements['inicio_encuadre_actual'].value,
+      fecha_graduacion: addUserForm.elements['fecha_graduacion'].value,
+      perfil_nombre: addUserForm.elements['perfil_nombre'].value,
+      business_unit_nombre: addUserForm.elements['business_unit_nombre'].value,
+      rotacion_nombre: addUserForm.elements['rotacion_nombre'].value,
+      jefe_actual: addUserForm.elements['jefe_actual'].value,
+      fecha_ingreso_programa: addUserForm.elements['fecha_ingreso_programa'].value,
+      cursos_completados: addUserForm.elements['cursos_completados'].value
+    };
+
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    })
+    .then(response => response.json())
+    .then(data => {
+      getUsers();
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+
+  addUserForm.addEventListener('submit', addUser);
+
+  function getUsers() {
+    fetch('http://localhost:3000/users')
+      .then(response => response.json())
+      .then(data => createTable(data));
+  }
+
+  function editUser(id) {
+    // implementar la función de editar usuario aquí
+  }
+
+  function deleteUser(id) {
+    // implementar la función de eliminar usuario aquí
+  }
+
+  getUsers();
+</script>
